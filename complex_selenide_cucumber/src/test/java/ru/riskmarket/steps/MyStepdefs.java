@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import ru.riskmarket.pageobjects.FirstPage;
 
 import java.util.List;
 
@@ -17,6 +18,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * Created by VKov on 17-Mar-16.
  */
 public class MyStepdefs {
+
+    FirstPage firstPage = page(FirstPage.class);
+
+
     @Given("^open riskmarket\\.ru$")
     public void openRiskmarketRu()
     {
@@ -27,17 +32,21 @@ public class MyStepdefs {
     public void selectACountries(List<String> countries){
         for(String str : countries)
         {
-            $("#countryInput").sendKeys(str);
-            $("#countryInput").pressEnter();
+            //$("#countryInput").sendKeys(str);
+            //$("#countryInput").pressEnter();
+            firstPage.get("Укажите страну").sendKeys(str);
+            firstPage.get("Укажите страну").pressEnter();
         }
     }
 
     @And("^specify the dates of journey, any available dates$")
     public void specifyTheDatesOfJourneyDepartureDateTomorrowReturnDateOneWeek()
     {
-        $("#preview").click();
-        $(".period-control-popup-day-body").$("span[data-ng-click]").click();
-        $(".period-control-popup-day-body").$("span[data-ng-click]").click();
+        //$("#preview").click();
+        firstPage.get("Даты поездки").click();
+        firstPage.clickAnyAvailableDate();
+        //$(".period-control-popup-day-body").$("span[data-ng-click]").click();
+        //$(".period-control-popup-day-body").$("span[data-ng-click]").click();
     }
 
     @And("^specify birthday of tourists: (\\d+).(\\d+).(\\d+)$")
@@ -51,7 +60,8 @@ public class MyStepdefs {
     @And("^press button with text \"([^\"]*)\"$")
     public void press(String button)
     {
-        $(byText(button)).click();
+
+        firstPage.get(button).click();
     }
 
     @And("^make a pause$")
@@ -61,22 +71,18 @@ public class MyStepdefs {
     }
 
     @And("^type to input with name \"([^\"]*)\" text: \"([^\"]*)\"$")
-    public void typeToInputWithNameText(String input, String text)
+    public void typeToInputWithNameText(String nameOfElement, String text)
     {
-        sleep(1000);
-        $("input[name=" + input + "]").sendKeys(text);
-    }
-
-    @And("^press element with value \"([^\"]*)\"$")
-    public void pressElementWithValue(String value)
-    {
-        $("*[value=" + value + "]").click();
+        //sleep(1000);
+        //$("input[name=" + input + "]").sendKeys(text);
+        firstPage.get(nameOfElement).sendKeys(text);
     }
 
     @And("^wait until login frame disappears$")
     public void waitUntilLoginFrameDisappears()
     {
-        $(".modal-content").waitUntil(Condition.disappears,7000);
+        //$(".modal-content").waitUntil(Condition.disappears,7000);
+        firstPage.get("Фрейм входа в кабинет").waitUntil(Condition.disappears,7000);
     }
 
     @And("^wait until spinner disappears$")
@@ -110,4 +116,5 @@ public class MyStepdefs {
     {
         $("*[value=" + value + "]").waitUntil(Condition.enabled, 2000).click();
     }
+
 }

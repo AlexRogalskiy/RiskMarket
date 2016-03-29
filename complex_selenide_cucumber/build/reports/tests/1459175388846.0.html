@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+        <meta charset="utf-8" />
+
+        <base href="/" />
+
+        <title>RiskMarket - сервис онлайн страхования и надёжного хранения полисов</title>
+
+        <link type="image/x-icon" href="img/favicon.ico" rel="icon" />
+
+        <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic" />
+
+        <link href="css/vendor-style.min.css" rel="stylesheet" />
+
+        <link href="css/app-style.min.css" rel="stylesheet" />
+    </head>
+
+    <body data-popover-close="" data-ng-strict-di="" data-ng-app="riskMarket" class="ng-scope ng-isolate-scope">
+        <div data-main-page-bg-random="" data-class-at="{'main-page-background': 'main-page'}" class="background-container" style="background-image: url(&quot;img/background-collection/1.jpg&quot;);">
+            <!-- ngInclude: 'modules/public-navigation/partials/public-navigation.html' --><div data-ng-include="'modules/public-navigation/partials/public-navigation.html'" class="container-fluid container-wrapper ng-scope"><nav data-ng-controller="navigationController as vm" data-class-at="{'navbar-index': 'main-page', '': 'order-prepare, order-payment, order-done, order-fail'}" class="navbar navbar-default main-nav navbar-fixed-top ng-scope"><div class="container-fluid container-content"><div class="navbar-header"><button aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle collapsed" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand logo" href="/"></a></div><div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse menu-list"><ul class="nav navbar-nav"><li class="nav-item"><a href="/" data-class-at="{'static': 'main-page'}" class="link">Путешествия</a></li></ul><button data-ng-click="vm.requestAuthenticate()" data-class-at="{'btn-login-main-page': 'main-page'}" class="btn btn-nav btn-success ng-hide" data-ng-show="vm.currentUser.value == null" style="">Вход в кабинет</button><ul data-ng-show="vm.currentUser.value != null" class="nav navbar-nav navbar-right" style=""><li class="dropdown"><a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle ng-binding" href="javascript:return false;">TEST TESTOVIY<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="9.5 12 8 5" style="enable-background:new 9.5 12 8 5;" xml:space="preserve" class="fill-svg">
+<path d="M13.5,14.6L10.7,12l-1.2,1.2l4,3.8l4-3.8L16.3,12L13.5,14.6L13.5,14.6z"/>
+</svg></a><ul class="dropdown-menu"><li><a href="/private-office" class="link"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 20" style="enable-background:new 0 0 16 20;" xml:space="preserve" class="link-icon">
+<g>
+	<g>
+		<path d="M15.9,1c-0.1-0.2-0.2-0.4-0.3-0.5c-0.2-0.1-0.3-0.3-0.5-0.3C14.8,0,14.6,0,14.4,0H1.6C1.4,0,1.2,0,1,0.1    C0.8,0.2,0.6,0.3,0.5,0.5C0.3,0.6,0.2,0.8,0.1,1C0,1.2,0,1.4,0,1.6v16.8c0,0.2,0,0.4,0.1,0.6c0.1,0.2,0.2,0.4,0.3,0.5    c0.2,0.1,0.3,0.3,0.5,0.3C1.2,20,1.4,20,1.6,20h12.8c0.2,0,0.4,0,0.6-0.1c0.2-0.1,0.4-0.2,0.5-0.3c0.1-0.1,0.3-0.3,0.3-0.5    c0.1-0.2,0.1-0.4,0.1-0.6V1.6C16,1.4,16,1.2,15.9,1z M14,18H2V2h12V18z M12,11H4v1h8V11z M8,16h4v-1H8V16z M12,13H4v1h8V13z     M7.9,9L7.9,9h0.1c0,0,0.5-0.3,1-0.8c0.6-0.7,1-1.5,1-2.4V4L9.9,4L6.1,4L6,4l0,0.1v1.6c0,0.9,0.3,1.7,1,2.4C7.5,8.7,7.9,9,7.9,9z"/>
+	</g>
+</g>
+</svg>Полисы</a></li><li><a data-ng-click="vm.logout($event)" href="#" class="link"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 26 20" style="enable-background:new 0 0 26 20;" xml:space="preserve" class="link-icon">
+<g>
+	<g>
+		<path d="M25.9,9.9L25.9,9.9c-1.6-1.5-3.2-3-4.8-4.4c0,0.4,0,1.6,0,3.1h-8.3v2.9h8.3c0,1.4,0,2.7,0,3.1c1.6-1.4,3.2-2.9,4.8-4.3    C25.9,10.1,26.1,10,25.9,9.9z M10,17.1c-3.9,0-7.1-3.2-7.1-7.1C2.8,6.1,6,2.9,10,2.9c2.3,0,4.4,1.1,5.7,2.9H19    c-1.6-3.4-5-5.7-9-5.7C4.5,0,0,4.5,0,10c0,5.5,4.5,10,10,10c4,0,7.4-2.3,9-5.7h-3.3C14.3,16,12.3,17.1,10,17.1z"/>
+	</g>
+</g>
+</svg>Выйти</a></li></ul></li></ul></div></div></nav><script id="login.html" type="text/ng-template" class="ng-scope">&lt;div class="modal-header"&gt;
+		&lt;div class="relative"&gt;
+			&lt;a href="#" data-ng-click="close($event)"&gt;&lt;img src="img/popup_cross.svg" /&gt;&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div class="modal-logo"&gt;&lt;img class="login_logo" src="img/logo_sign_alone.svg" /&gt;&lt;/div&gt;
+		&lt;h2 class="modal-title" data-ng-hide="isRestore"&gt;Вход&lt;br /&gt; в личный кабинет&lt;/h2&gt;
+		&lt;h2 class="modal-title restore" data-ng-show="isRestore"&gt;Восстановление&lt;br /&gt;пароля&lt;/h2&gt;
+	&lt;/div&gt;
+	&lt;div class="modal-body" data-ng-hide="isRestore"&gt;
+		&lt;form name="login" novalidate data-ng-submit="login.$valid &amp;&amp; ok()"&gt;
+
+			&lt;div class="item-component"&gt;
+				&lt;div data-focus-styling="{class: 'focus'}" class="user-input-element user-input-single-text"
+					 data-ng-class="{error: (login.userName.$error.required || login.userName.$error.pattern) &amp;&amp; (login.userName.$touched || login.$submitted)}"&gt;
+					&lt;input type="text" placeholder="Логин"
+						   data-ng-model="formData.userName" data-ng-required="true" name="userName" data-popover-trigger="focus"
+						   data-uib-popover="Адрес электронной почты" data-ng-pattern="regexp.EMAIL" /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+
+			&lt;div class="item-component"&gt;
+				&lt;div data-focus-styling="{class: 'focus'}" class="user-input-element user-input-single-text"
+					 data-ng-class="{error: login.password.$error.required &amp;&amp; (login.password.$touched || login.$submitted)}"&gt;
+					&lt;input type="password" placeholder="Пароль"
+						   data-ng-model="formData.password" data-ng-required="true"
+						   name="password" id="password" data-popover-trigger="focus"
+						   data-uib-popover="Пароль" /&gt;&lt;span class="show-pass" title="показать символы" data-ng-click="showpassword($event)"&gt;&lt;img data-img-svg src="/img/pass_vizible_icon.svg" alt="" /&gt;&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+
+			&lt;div class="centered-text helper"&gt;
+				&lt;a class="link" href="#" data-ng-click="setRestore($event)"&gt;Забыли логин или пароль?&lt;/a&gt;
+			&lt;/div&gt;
+
+			&lt;p
+					data-ng-if="loginError"
+
+					data-ng-bind="feedBack"
+
+					class="alert alert-danger"
+			&gt;&lt;/p&gt;
+
+			&lt;div class="centered-text"&gt;
+				&lt;input data-ng-disabled="login.$invalid" class="btn btn-success" type="submit" value="Войти" /&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;
+		&lt;div class="helper"&gt;
+			&lt;div class="centered-text"&gt;
+				&lt;a data-ng-click="isCollapsed = !isCollapsed" class="action"&gt;Как завести личный кабинет?&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;div uib-collapse="isCollapsed"&gt;
+				&lt;div class="smaller message"&gt;На RiskMarket нет регистрации, то есть личный кабинет завести нельзя. Личный кабинет будет создан для Вас сразу после того, как Вы оформите первый заказ: на почту придёт письмо с логином и паролем к Вашему личному кабинету.&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="modal-body restore" data-ng-show="isRestore"&gt;
+		&lt;form name="restore" novalidate data-ng-submit="restore.$valid &amp;&amp; restorePassword()"&gt;
+			&lt;div class="centered-text helper"&gt;
+				&lt;p&gt;Укажите почту, на которую будет&lt;br /&gt; выслан новый пароль&lt;/p&gt;
+
+				&lt;p
+					data-ng-if="passwordRestoreIntent &amp;&amp; passwordRestoreResultReceived"
+
+				  data-ng-bind="feedBack"
+
+				  class="alert"
+
+				  data-ng-class="{
+			      'alert-danger': passwordRestoreError,
+
+			      'alert-success': !passwordRestoreError
+				  }"
+				&gt;&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div class="item-component"&gt;
+				&lt;div data-focus-styling="{class: 'focus'}" class="user-input-element user-input-single-text"
+					 data-ng-class="{error: (restore.userName.$error.required || restore.userName.$error.pattern) &amp;&amp; (restore.userName.$touched || restore.$submitted)}"&gt;
+					&lt;input type="text" placeholder="Эл. почта"
+						   data-ng-model="formData.userName" data-ng-required="true" name="userName" data-popover-trigger="focus"
+						   data-uib-popover="Адрес электронной почты" data-ng-pattern="regexp.EMAIL" /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+
+			&lt;div class="longbreak"&gt;&lt;/div&gt;
+			&lt;div class="centered-text"&gt;
+				&lt;input data-ng-disabled="restore.$invalid" class="btn btn-success" type="submit" value="Восстановить" /&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;
+	&lt;/div&gt;</script></div>
+
+            <!-- ngView:  --><div class="container-fluid container-wrapper main-content ng-scope" data-ng-view="" style=""><div class="container-fluid container-wrapper container-wrapper-darker ng-scope"><div class="query-control-area ng-isolate-scope" data-sticky=""><div data-action-allowed="allowToFetchResults();" data-action="getResults(data);" data-data="insuranceParams" data-search-query="" class="ng-isolate-scope"><div class="filter-container"><div class="filter-wrapper"><div class="filter-fields"><div class="filter-area"><div data-items="countries" data-tooltip-is-open="!data.country.length" data-tooltip-trigger="none" data-tooltip-enable="!data.country.length" data-tooltip-placement="top" data-uib-tooltip="Пожалуйста, выберите страну" data-ng-model="data.country" data-selectable-items="{
+					mode: 'full',
+
+					labels: textLabels,
+
+					itemLabel: 'nameRus',
+
+					maxItems: selectableItems.MAIN_PAGE_TRIP_ITEMS_LIMIT,
+
+					enableTips: false
+				}" class="ng-pristine ng-untouched ng-valid ng-isolate-scope"><div data-ng-click="fakeClick();" class="selectable-items"><div id="defaultCountryLabel" data-ng-click="fakeClick();" data-ng-show="isFakeInputVisible();" class="suggestion-fake-input selectable-item ng-hide">Укажите страну</div><div id="countrySelector" class="items-wrapper"><!-- ngRepeat: selectedItem in selection --><span class="selectable-item ng-binding ng-scope" data-ng-repeat="selectedItem in selection">Шенген <span class="control control-remove" data-ng-click="removeItem(selectedItem);"></span></span><!-- end ngRepeat: selectedItem in selection --><span class="selectable-item ng-binding ng-scope" data-ng-repeat="selectedItem in selection">Финляндия <span class="control control-remove" data-ng-click="removeItem(selectedItem);"></span></span><!-- end ngRepeat: selectedItem in selection --><span class="selectable-item ng-binding ng-scope" data-ng-repeat="selectedItem in selection">Китай <span class="control control-remove" data-ng-click="removeItem(selectedItem);"></span></span><!-- end ngRepeat: selectedItem in selection --> <input type="text" id="countryInput" data-ng-blur="focusLost();" data-ng-keydown="handleInput($event);" data-ng-click="inputCountryClick(true);" data-ng-model="userInput" class="suggestion-input ng-pristine ng-untouched ng-valid" style="width: 109.4px;" /></div><button data-ng-click="fakeClick();" class="btn-trigger btn-trigger-map btn-command" type="button"></button><div data-ng-show="enableSuggestions &amp;&amp; suggestions.length" class="ng-hide"><ul class="selectable-items-suggestions items"><!-- ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope parent separator" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions" style=""><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Весь мир</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions" style=""><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Абхазия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Австралия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Австрия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Азербайджан</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Азия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Албания</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Алжир</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Ангола</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Андорра</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Антигуа и Барбуда</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Аргентина</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Армения</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Афганистан</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Багамы</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Бали</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Бангладеш</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Барбадос</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Бахрейн</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Белиз</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Белоруссия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Бельгия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Бенин</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Бермуды</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Болгария</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Боливия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Босния и Герцеговина</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Ботсвана</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Бразилия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Бруней</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Бурунди</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Бутан</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Вануату</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Ватикан</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Великобритания</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Венгрия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Венесуэла</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Вест-Индия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Восточный Тимор</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Вьетнам</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Габон</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гаити</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гайана</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гамбия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гана</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гваделупа</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гватемала</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гвинея</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гвинея-Бисау</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Германия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гибралтар</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гондурас</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гонконг</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гренада</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гренландия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Греция</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Грузия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Гуам</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Дания</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Демократическая Республика Конго</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Джибути</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Доминика</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Доминиканская республика</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Египет</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Замбия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Зимбабва</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Израиль</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Индия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Индонезия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Иордания</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Ирак</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Иран</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Ирландия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Исландия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Испания</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Италия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Йемен</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Кабо-Верде</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Казахстан</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Камбоджа</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Камерун</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Канада</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Карибские Острова</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Катар</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Кения</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Кипр</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Киргизия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Кирибати</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Кокосовые Острова</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Колумбия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Коморские острова</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Корейская Народно-Демократическая Республика</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Корея</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Коста-Рика</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Куба</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Кувейт</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Лаос</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Латвия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Лесото</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Либерия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Ливан</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Ливия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Литва</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Лихтенштейн</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Люксембург</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Маврикий</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Мавритания</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Мадагаскар</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Македония</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Малави</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Малайзия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Мали</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Мальдивы</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Мальта</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Маршалловы Острова</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Мексика</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Микронезия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Мозамбик</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Молдова</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Монако</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Монголия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Монтенегро</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Морокко</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Мьянма</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Намибия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Науру</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Непал</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Нигер</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Нигерия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Нидерландские Антильские острова</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Нидерланды</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Никарагуа</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Ниуэ</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Новая Зеландия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Норвегия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Объединенные Арабские Эмираты</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Оман</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Остров Херд и острова Макдональд</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Острова Кайман</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Острова Кука</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Пакистан</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Палау</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Панама</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Папуа - Новая Гвинея</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Парагвай</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Перу</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Польша</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Португалия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Пуэрто-Рико</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Россия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Руанда</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Румыния</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Руспублика Конго</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сальвадор</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Самоа</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сан-Марино</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сан-Томе и Принсипи</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Саудовская Аравия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сахарская Арабская Демократическая Республика (Западная Сахара)</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Свазиленд</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сейшельские Острова</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сенегал</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сент-Винсент и Гренадины</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сент-Китс и Невис</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сент-Люсия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сербия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сингапур</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сирия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Словакия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Словения</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">СНГ</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Соломоновы острова</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Сомали</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Судан</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Суринам</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">США</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Таджикистан</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Таиланд</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Тайвань</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Танзания</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Того</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Тонга</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Тринидад и Тобаго</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Тувалу</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Тунис</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Турецкая Республика Северного Кипра</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Туркменистан</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Турция</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Уганда</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Узбекистан</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Украина</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Уругвай</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Фарерские острова</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Фиджи</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Филиппины</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Франция</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Хорватия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Центральноафриканская Республика</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Чад</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Чехия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Чили</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Швейцария</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Швеция</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Шотландия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Шри-Ланка</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Эквадор</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Экваториальная Гвинея</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Эстония</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Эфиопия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">ЮАР</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Югославия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Южная Корея</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Южная Осетия</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Ямайка</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --><li data-ng-class="{
+					'parent': item.parent,
+
+					'separator': item.parent &amp;&amp; !!suggestions[+index + 1] &amp;&amp;  !suggestions[+index + 1].parent
+				}" class="item-container ng-scope" data-ng-repeat="( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions"><span data-ng-click="addItem(item);" data-ng-bind-html="item[itemLabel] | highlight:userInput" class="item ng-binding">Япония</span></li><!-- end ngRepeat: ( index, item ) in items | filter:matchedSuggestionFilter | orderBy: [topicsFilter, relevantIndexFilter, alphabetFilter] as suggestions --></ul></div></div><!-- ngIf: enableTips --></div></div><div class="filter-area"><period-control class="slim ng-isolate-scope" data-tooltip-is-open="!data.period['start-date'] || !data.period['end-date']" data-tooltip-trigger="none" data-tooltip-enable="!data.period['start-date'] || !data.period['end-date']" data-tooltip-placement="top" data-uib-tooltip="Пожалуйста, укажите даты поездки" data-finish="data.period['end-date']" data-start="data.period['start-date']"><div class="period-control"><div class="period-control-input"><div data-ng-hide="events.notInPreviewMode()" class="period-control-input-div preview ng-hide"><div data-ng-click="events.dateFieldFocus(dateType.start)" data-ng-model="preview" class="date_placeholder ng-pristine ng-untouched ng-valid" id="preview">Даты поездки</div></div><div data-ng-class="{'active': formData.type == dateType.start &amp;&amp; formData.show.popup }" data-ng-show="events.notInPreviewMode()" class="period-control-input-div"><input type="text" readonly="readonly" placeholder="_ _._ _._ _ _ _" data-ng-click="events.dateFieldFocus(dateType.start)" data-ng-init="events.checkDates()" id="startdate" data-ng-model="start" class="ng-pristine ng-untouched ng-valid" /></div><div data-ng-click="events.dateFieldFocus(dateType.start)" data-ng-show="events.notInPreviewMode()" class="period-control-input-dash">—</div><div data-ng-class="{ 'invalid': !formData.valid[dateType.finish] &amp;&amp; finish, 'active': formData.type == dateType.finish &amp;&amp; formData.show.popup }" data-ng-show="events.notInPreviewMode()" class="period-control-input-div"><input type="text" readonly="readonly" placeholder="_ _._ _._ _ _ _" data-ng-click="events.dateFieldFocus(dateType.finish)" data-ng-init="events.checkDates()" id="enddate" data-ng-model="finish" class="ng-pristine ng-untouched ng-valid" /></div><button data-ng-click="events.inputBtnClick()"> </button></div><div data-ng-show="formData.show.popup" class="period-control-popup ng-hide"><div class="period-control-popup-month"><button style="background-image: url('../../../../../img/calendar/btn-prev-month.png')" data-ng-click="events.prevMonthClick()"> </button><label class="ng-binding">Март 2016</label><button style="background-image: url('../../../../../img/calendar/btn-next-month.png')" data-ng-click="events.nextMonthClick()"> </button></div><div class="period-control-popup-day-header"><!-- ngRepeat: acronym in daysAcronyms --><span data-ng-repeat="acronym in daysAcronyms" class="ng-binding ng-scope">Пн</span><!-- end ngRepeat: acronym in daysAcronyms --><span data-ng-repeat="acronym in daysAcronyms" class="ng-binding ng-scope">Вт</span><!-- end ngRepeat: acronym in daysAcronyms --><span data-ng-repeat="acronym in daysAcronyms" class="ng-binding ng-scope">Ср</span><!-- end ngRepeat: acronym in daysAcronyms --><span data-ng-repeat="acronym in daysAcronyms" class="ng-binding ng-scope">Чт</span><!-- end ngRepeat: acronym in daysAcronyms --><span data-ng-repeat="acronym in daysAcronyms" class="ng-binding ng-scope">Пт</span><!-- end ngRepeat: acronym in daysAcronyms --><span data-ng-repeat="acronym in daysAcronyms" class="ng-binding ng-scope">Сб</span><!-- end ngRepeat: acronym in daysAcronyms --><span data-ng-repeat="acronym in daysAcronyms" class="ng-binding ng-scope">Вс</span><!-- end ngRepeat: acronym in daysAcronyms --></div><div class="period-control-popup-day-body"><!-- ngRepeat: offset in formData.grid.offset --><span data-ng-repeat="offset in formData.grid.offset" class="ng-scope"> </span><!-- end ngRepeat: offset in formData.grid.offset --> <!-- ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">1</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">2</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">3</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">4</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">5</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">6</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">7</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">8</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">9</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">10</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">11</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">12</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">13</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">14</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">15</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">16</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">17</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">18</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">19</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">20</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">21</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">22</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">23</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">24</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">25</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">26</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">27</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.before --><span data-ng-repeat="overdueDay in formData.grid.overdue" class="period-control-popup-overdue-day ng-binding ng-scope" data-ng-if="formData.grid.overdueType == overdueType.before">28</span><!-- end ngIf: formData.grid.overdueType == overdueType.before --><!-- end ngRepeat: overdueDay in formData.grid.overdue --> <!-- ngRepeat: actualDay in formData.grid.actual --><span data-ng-click="events.selectDate(actualDay, $last)" data-ng-repeat="actualDay in formData.grid.actual" data-ng-class="{ 'period-control-popup-active-day-select': actualDay.select }" class="period-control-popup-active-day ng-binding ng-scope">29</span><!-- end ngRepeat: actualDay in formData.grid.actual --><span data-ng-click="events.selectDate(actualDay, $last)" data-ng-repeat="actualDay in formData.grid.actual" data-ng-class="{ 'period-control-popup-active-day-select': actualDay.select }" class="period-control-popup-active-day ng-binding ng-scope">30</span><!-- end ngRepeat: actualDay in formData.grid.actual --><span data-ng-click="events.selectDate(actualDay, $last)" data-ng-repeat="actualDay in formData.grid.actual" data-ng-class="{ 'period-control-popup-active-day-select': actualDay.select }" class="period-control-popup-active-day ng-binding ng-scope">31</span><!-- end ngRepeat: actualDay in formData.grid.actual --> <!-- ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --><!-- ngIf: formData.grid.overdueType == overdueType.after --><!-- end ngRepeat: overdueDay in formData.grid.overdue --></div></div></div></period-control></div><div class="filter-area"><participants-control data-tooltip-is-open="!data.passengers[0].birthDate.length &amp;&amp; !data.passengers[0].isValid" data-tooltip-trigger="none" data-tooltip-placement="top" data-uib-tooltip="Укажите туристов" class="slim ng-isolate-scope" data-lazy-update="false" data-max-participant-count="4" data-participants="data.passengers"><div class="participants-control"><div class="participants-control-input" data-ng-click="togglePopup();"><div class="widget-info-area ng-binding" data-ng-bind="totalPassengersLabel" data-ng-class="{active: params.show.popup, invalid: touched &amp;&amp; !isValid, placeholder: !participantsQuantity}">1 турист</div><button> </button></div><div class="participants-control-popup hidden" data-ng-class="{hidden: !showControls}"><div data-ng-show="participants.length &lt; 2" class="age-add-title">Даты рождения туристов</div><!-- ngRepeat: (participantId, participant) in participants --><div data-ng-repeat="(participantId, participant) in participants" class="participants-control-popup-row ng-scope"><input type="text" data-ng-class="{'stand-alone': participants.length === 1, 'entity-invalid': !participant.isValid}" data-ng-keydown="processHandleInput($event, participants, participantId);" data-ui-options="{'clearOnBlur': false}" data-model-view-value="true" required="" data-ui-mask="99.99.9999" data-ng-blur="currentMask = mask.blur; checkParticipants(participants);" data-ng-focus="currentMask = mask.focus" data-ui-mask-placeholder="дд.мм.гггг" data-ng-model="participant.birthDate" class="ng-pristine ng-untouched ng-valid ng-valid-required stand-alone ng-valid-mask" placeholder="дд.мм.гггг" /> <button data-ng-click="blockPropagation($event); removeParticipant(participant);" data-ng-show="participant !== participants[0] || participants.length &gt; 1" class="participants-control-popup-row-remove ng-hide"> </button></div><!-- end ngRepeat: (participantId, participant) in participants --><div class="participants-control-popup-add"><button data-ng-click="addParticipant();" data-ng-show="participants.length &lt; maxParticipantCount" class="">добавить</button></div></div></div></participants-control></div></div><div class="filter-buttons"><div class="filter-area"><button data-ng-class="{ 'btn-options-active': showOptions }" class="btn btn-options" data-ng-click="showOptions = !showOptions">ОПЦИИ</button></div><div class="filter-area"><button data-ng-click="action({data: data});" data-ng-disabled="!actionAllowed();" class="btn">РАССЧИТАТЬ</button></div></div></div><div class="filter-wrapper dummy inactive" data-ng-class="{'inactive': !showOptions}"><div class="filter-options"><div class="filter-area"><input type="checkbox" id="searchQueryLuggage" /><label for="searchQueryLuggage" data-ng-click="toggleRisk('luggage');">Защита багажа</label></div><div class="filter-area"><input type="checkbox" id="searchQueryCancellation" /><label for="searchQueryCancellation" data-ng-click="toggleRisk('trip_change_or_cancellation');">Отмена поездки</label></div><div class="filter-area"><input type="checkbox" id="searchQueryAccident" /><label for="searchQueryAccident" data-ng-click="toggleRisk('accident');">Несчастный случай</label></div><div class="filter-area"><input type="checkbox" id="searchQueryResponsibility" /><label for="searchQueryResponsibility" data-ng-click="toggleRisk('personal_liability');">Гражданская ответственность</label></div></div></div><div class="filter-wrapper dummy inactive" data-ng-class="{'inactive': !showOptions}"><div class="filter-options"><!-- ngRepeat: termData in dictionaries.activity | orderBy: 'orderNumber' --><div data-ng-repeat="termData in dictionaries.activity | orderBy: 'orderNumber'" class="filter-area ng-scope" style=""><input type="checkbox" data-ng-attr-id="{{ 'term' + termData.code }}" id="termACTIVE_REST" /><label data-ng-bind="termData.displayName" data-ng-attr-for="{{ 'term' + termData.code}}" data-ng-click="toggleTerm(termData.code);" class="ng-binding" for="termACTIVE_REST">Активный отдых</label></div><!-- end ngRepeat: termData in dictionaries.activity | orderBy: 'orderNumber' --><div data-ng-repeat="termData in dictionaries.activity | orderBy: 'orderNumber'" class="filter-area ng-scope"><input type="checkbox" data-ng-attr-id="{{ 'term' + termData.code }}" id="termSPORT" /><label data-ng-bind="termData.displayName" data-ng-attr-for="{{ 'term' + termData.code}}" data-ng-click="toggleTerm(termData.code);" class="ng-binding" for="termSPORT">Любительский спорт</label></div><!-- end ngRepeat: termData in dictionaries.activity | orderBy: 'orderNumber' --><div data-ng-repeat="termData in dictionaries.activity | orderBy: 'orderNumber'" class="filter-area ng-scope"><input type="checkbox" data-ng-attr-id="{{ 'term' + termData.code }}" id="termSPORT_COMPETITIONS" /><label data-ng-bind="termData.displayName" data-ng-attr-for="{{ 'term' + termData.code}}" data-ng-click="toggleTerm(termData.code);" class="ng-binding" for="termSPORT_COMPETITIONS">Соревнования и сборы</label></div><!-- end ngRepeat: termData in dictionaries.activity | orderBy: 'orderNumber' --><div data-ng-repeat="termData in dictionaries.activity | orderBy: 'orderNumber'" class="filter-area ng-scope"><input type="checkbox" data-ng-attr-id="{{ 'term' + termData.code }}" id="termEXTREME_SPORT" /><label data-ng-bind="termData.displayName" data-ng-attr-for="{{ 'term' + termData.code}}" data-ng-click="toggleTerm(termData.code);" class="ng-binding" for="termEXTREME_SPORT">Экстремальный спорт</label></div><!-- end ngRepeat: termData in dictionaries.activity | orderBy: 'orderNumber' --></div></div></div></div><div data-order="resultsOrder" data-params="insuranceParams.resultsFilter.calculationDataInput" data-search-filter="" class="ng-isolate-scope"><div data-ng-show="referenceDataFetched" class="filter-container filter-light" style=""><div class="filter-wrapper"><div class="filter-area"><span class="item-label">Тип полиса</span><div data-values="dictionaries.policyType" data-model-prop="value" data-view-prop="label" data-target-model="params.travelData.period.multi" data-user-input-list="" class="user-input-widget ng-isolate-scope"><div class="user-input-wrapper"><span data-ng-bind="getViewValue(selectedValue);" class="current-item ng-binding" style="width: 107px;">Любой</span><ul class="user-input-items-list"><!-- ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope user-input-item-selected"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">Любой</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">Однократный</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">Многократный</span></li><!-- end ngRepeat: value in values track by $index --></ul></div><button class="btn-trigger btn-arrow-down"></button></div></div><div class="filter-area"><span class="item-label">Страховая сумма</span><div data-values="dictionaries.insuranceSum" data-model-prop="value" data-view-prop="label" data-target-model="params.riskAliasMap.MEDICAL_EXPENSES.risk.sumInsured" data-user-input-list="" class="user-input-widget ng-isolate-scope"><div class="user-input-wrapper"><span data-ng-bind="getViewValue(selectedValue);" class="current-item ng-binding" style="width: 63px;">Любая</span><ul class="user-input-items-list"><!-- ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope user-input-item-selected" style=""><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">Любая</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope" style=""><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">30,000</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">35,000</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">40,000</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">50,000</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">100,000</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">300,000</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">500,000</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">1,000,000</span></li><!-- end ngRepeat: value in values track by $index --></ul></div><button class="btn-trigger btn-arrow-down"></button></div><div data-values="dictionaries.currency" data-model-prop="value" data-view-prop="label" data-target-model="params.currency" data-user-input-list="" class="user-input-widget user-input-widget-currencies ng-isolate-scope"><div class="user-input-wrapper"><span data-ng-bind="getViewValue(selectedValue);" class="current-item ng-binding" style="width: 39px;">$, €, a</span><ul class="user-input-items-list"><!-- ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope user-input-item-selected" style=""><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">$, €, a</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope" style=""><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">€</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">$</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">a</span></li><!-- end ngRepeat: value in values track by $index --></ul></div><button class="btn-trigger btn-arrow-down"></button></div></div><div class="filter-area"><input type="checkbox" data-ng-model="params.riskAliasMap.BROKEN_CAR.riskStatus" data-ng-false-value="undefined" data-ng-true-value="'INCLUDED'" id="carInsurance" class="ng-pristine ng-untouched ng-valid" /><label for="carInsurance">на авто</label></div><div class="filter-area"><input type="checkbox" data-ng-model="params.riskAliasMap.FLIGHT_DELAY.riskStatus" data-ng-false-value="undefined" data-ng-true-value="'INCLUDED'" id="flightDelay" class="ng-pristine ng-untouched ng-valid" /><label for="flightDelay">задержка рейса</label></div><div class="filter-area"><div data-values="dictionaries.sortOrder" data-default-view-value="Сортировка" data-ignore-events="true" data-model-prop="value" data-view-prop="label" data-target-model="order" data-user-input-list="" class="user-input-widget ng-isolate-scope"><div class="user-input-wrapper"><span data-ng-bind="getViewValue(selectedValue);" class="current-item ng-binding" style="width: 160px;">Сортировка</span><ul class="user-input-items-list"><!-- ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">По умолчанию</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">По уменьшению цены</span></li><!-- end ngRepeat: value in values track by $index --><li data-ng-class="{'user-input-item-selected': value.inactive ||  selectedValue[viewProp] === value[viewProp]}" data-ng-mousedown="setCurrentValue(value);" data-ng-repeat="value in values track by $index" class="user-input-item ng-scope"><span class="user-input-item-value ng-binding" data-ng-bind="getViewValue(value);" style="">По увеличению цены</span></li><!-- end ngRepeat: value in values track by $index --></ul></div><button class="btn-trigger btn-arrow-down"></button></div></div></div></div></div></div><section class="container-fluid container-content container-content-primary container-content-search-results"><p data-ng-show="calculationDone &amp;&amp; !relevantItemsPresented();" class="ng-hide">Нет данных, удовлетворяющих параметрам запроса.</p><div class="list-items"><!-- ngRepeat: insuranceItem in searchResults | orderBy:resultsOrder.prop:resultsOrder.direction track by insuranceItem.calculationId --></div><div data-ng-show="fetchingResults" class="spinner-container ng-hide" style=""><span class="glyphicon spinner glyphicon-refresh"></span></div></section></div><script id="offers.html" type="text/ng-template" class="ng-scope">&lt;div class="container-fluid container-wrapper"&gt;
+        &lt;!-- Container for inner content  --&gt;
+
+        &lt;div class="container-fluid container-content"&gt;
+            &lt;!-- Offers row:1 (should be a flex grid with bootstrap columns) --&gt;
+
+            &lt;div class="subjects-container subjects-promo"&gt;
+                &lt;!-- Promo text --&gt;
+
+                &lt;div class="subject-container"&gt;
+                    &lt;h3 class="subject-title"&gt;Специально для путешествий&lt;/h3&gt;
+
+                    &lt;!-- End of promo text --&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Product with graphical element (picture / video) --&gt;
+
+                &lt;div class="subject-container subject-container-media"&gt;
+                    &lt;figure class="subject-container-resource subject-media-asset"&gt;
+                        &lt;img src="img/banners/banner-00.jpg" alt="Новые семейные программы" /&gt;
+
+                        &lt;figcaption class="subject-container-brief alpha"&gt;
+                            &lt;!-- Note: use pseudo elements for insurance company logo --&gt;
+
+                            &lt;h4 class="subject-title"&gt;Новые семейные программы&lt;/h4&gt;
+                        &lt;/figcaption&gt;
+                    &lt;/figure&gt;
+                    &lt;!-- End of product --&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Product with graphical element (picture / video) --&gt;
+
+                &lt;div class="subject-container subject-container-media"&gt;
+                    &lt;figure class="subject-container-resource subject-media-asset"&gt;
+                        &lt;img src="img/banners/banner-01.jpg" alt="Время отпусков это ваше время" /&gt;
+
+                        &lt;figcaption class="subject-container-brief vtb"&gt;
+                            &lt;!-- Note: use pseudo elements for insurance company logo --&gt;
+
+                            &lt;h4 class="subject-title"&gt;Время отпусков это ваше время&lt;/h4&gt;
+                        &lt;/figcaption&gt;
+                    &lt;/figure&gt;
+                    &lt;!-- End of product --&gt;
+                &lt;/div&gt;
+
+                &lt;div class="subject-container subject-container-media"&gt;
+                    &lt;figure class="subject-container-resource subject-media-asset"&gt;
+                        &lt;img src="img/banners/banner-02.jpg" alt="Больше семья, больше защита" /&gt;
+
+                        &lt;figcaption class="subject-container-brief vsk"&gt;
+                            &lt;!-- Note: use pseudo elements for insurance company logo --&gt;
+
+                            &lt;h4 class="subject-title"&gt;Больше семья, больше защита&lt;/h4&gt;
+                        &lt;/figcaption&gt;
+                    &lt;/figure&gt;
+                    &lt;!-- End of product --&gt;
+                &lt;/div&gt;
+
+                &lt;!-- End of offers row:1 --&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Offers row:2 (should be a flex grid with bootstrap columns) --&gt;
+
+            &lt;div class="subjects-container subjects-promo"&gt;
+                &lt;!-- Promo text --&gt;
+
+                &lt;div class="subject-container"&gt;
+                    &lt;h3 class="subject-title"&gt;Специально для путешествий&lt;/h3&gt;
+
+                    &lt;!-- End of promo text --&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Product with graphical element (picture / video) --&gt;
+
+                &lt;div class="subject-container subject-container-media"&gt;
+                    &lt;figure class="subject-container-resource subject-media-asset"&gt;
+                        &lt;img src="img/banners/banner-00.jpg" alt="Новые семейные программы" /&gt;
+
+                        &lt;figcaption class="subject-container-brief alpha"&gt;
+                            &lt;!-- Note: use pseudo elements for insurance company logo --&gt;
+
+                            &lt;h4 class="subject-title"&gt;Новые семейные программы&lt;/h4&gt;
+                        &lt;/figcaption&gt;
+                    &lt;/figure&gt;
+                    &lt;!-- End of product --&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Product with graphical element (picture / video) --&gt;
+
+                &lt;div class="subject-container subject-container-media"&gt;
+                    &lt;figure class="subject-container-resource subject-media-asset"&gt;
+                        &lt;img src="img/banners/banner-01.jpg" alt="Время отпусков это ваше время" /&gt;
+
+                        &lt;figcaption class="subject-container-brief vtb"&gt;
+                            &lt;!-- Note: use pseudo elements for insurance company logo --&gt;
+
+                            &lt;h4 class="subject-title"&gt;Время отпусков это ваше время&lt;/h4&gt;
+                        &lt;/figcaption&gt;
+                    &lt;/figure&gt;
+                    &lt;!-- End of product --&gt;
+                &lt;/div&gt;
+
+                &lt;div class="subject-container subject-container-media"&gt;
+                    &lt;figure class="subject-container-resource subject-media-asset"&gt;
+                        &lt;img src="img/banners/banner-02.jpg" alt="Больше семья, больше защита" /&gt;
+
+                        &lt;figcaption class="subject-container-brief vsk"&gt;
+                            &lt;!-- Note: use pseudo elements for insurance company logo --&gt;
+
+                            &lt;h4 class="subject-title"&gt;Больше семья, больше защита&lt;/h4&gt;
+                        &lt;/figcaption&gt;
+                    &lt;/figure&gt;
+
+                    &lt;!-- End of product --&gt;
+                &lt;/div&gt;
+
+                &lt;!-- End of offers row:2 --&gt;
+            &lt;/div&gt;
+
+            &lt;!-- End of container for inner content --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</script></div>
+        </div>
+
+        <!-- ngInclude: 'modules/public-footer/partials/public-footer.html' --><footer data-class-at="{'container-wrapper-darker': 'trip-form, search-results', 'container-wrapper-lighter': 'order-prepare, order-payment, order-done, order-fail'}" data-ng-include="'modules/public-footer/partials/public-footer.html'" class="container-fluid container-wrapper ng-scope container-wrapper-darker"><div class="container-fluid container-content ng-scope"><div class="col-xs-3 footer-section-container"><p class="copyright">© 2015, RiskMarket</p></div><div class="col-xs-5 footer-section-container"><a class="footer-link" href="/about">О компании</a> <a class="footer-link" href="/contacts">Контакты</a></div><div class="col-xs-4 footer-section-container"><ul class="items partner-items"><li class="partner-item item partner-item-visa"></li><li class="partner-item item partner-item-mastercard"></li><li class="partner-item item partner-item-geotrust"></li></ul></div></div></footer>
+
+        <script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script src="js/vendor-logic.min.js" type="text/javascript"></script>
+
+        <script src="js/app-logic.min.js" type="text/javascript"></script>
+
+        <!-- Yandex.Metrika counter -->
+
+        <script type="text/javascript">
+            (function(b,c,a){(c[a]=c[a]||[]).push(function(){try{c.yaCounter34477675=new Ya.Metrika({id:34477675,webvisor:!0,clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,ut:"noindex"})}catch(a){}});var e=b.getElementsByTagName("script")[0],d=b.createElement("script");a=function(){e.parentNode.insertBefore(d,e)};d.type="text/javascript";d.async=!0;d.src=("https:"==b.location.protocol?"https:":"http:")+"//mc.yandex.ru/metrika/watch.js";"[object Opera]"==c.opera?b.addEventListener("DOMContentLoaded",a,!1):a()})(document,
+            window,"yandex_metrika_callbacks");
+        </script>
+
+        <noscript>
+            &lt;div&gt;
+                &lt;img src="//mc.yandex.ru/watch/34477675?ut=noindex" style="position:absolute; left:-9999px;" alt="" /&gt;
+            &lt;/div&gt;
+        </noscript>
+
+        <!-- /Yandex.Metrika counter -->
+    
+</body></html>
