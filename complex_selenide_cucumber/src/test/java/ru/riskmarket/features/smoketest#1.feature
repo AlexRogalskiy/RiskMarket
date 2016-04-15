@@ -1,3 +1,4 @@
+@smoketest
 Feature: smoke test #1, go through the service to button "Купить"
 
   Scenario: go through the service to button "Купить"

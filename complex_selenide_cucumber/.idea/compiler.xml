@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="complex_selenide_cucumber" />
         <module name="simple_selenide_cucumber" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="complex_selenide_cucumber" target="1.5" />
       <module name="simple_selenide_cucumber" target="1.5" />
     </bytecodeTargetLevel>
   </component>

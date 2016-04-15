@@ -11,10 +11,12 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-        format = {"pretty",
-                  "html:target/cucumber-report/smoketest"},
+        plugin = {"pretty",
+                  "html:target/cucumber-report/smoketest",
+                  "json:target/cucumber.json"},
         features = "src/test/java/ru/riskmarket/features",
-        glue = "ru/riskmarket/steps"
+        glue = "ru/riskmarket/steps",
+        tags = "@smoketest"
 )
 
 public class SmokeTest {
