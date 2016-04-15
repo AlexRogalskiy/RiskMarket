@@ -26,71 +26,94 @@ formatter.step({
   "keyword": "Given "
 });
 formatter.step({
+  "line": 7,
+  "name": "check that element with name \"Вход в кабинет\" is displayed",
+  "keyword": "And "
+});
+formatter.step({
   "line": 8,
-  "name": "press button with text \"Вход в кабинет\"",
+  "name": "press button with text \"Вход в кабинет\" on \"first page\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 9,
+  "name": "type to input with name \"Логин\" text: \"riskmarket.testoviy2016@yandex.ru\" on \"first page\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 10,
-  "name": "type to input with name \"Логин\" text: \"riskmarket.testoviy2016@yandex.ru\"",
+  "name": "type to input with name \"Пароль\" text: \"l0dcfJMB\" on \"first page\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 11,
-  "name": "type to input with name \"Пароль\" text: \"l0dcfJMB\"",
+  "name": "press button with text \"Войти\" on \"first page\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 12,
-  "name": "press button with text \"Войти\"",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 13,
   "name": "wait until login frame disappears",
   "keyword": "And "
 });
 formatter.step({
-  "line": 14,
+  "line": 13,
   "name": "select a countries: Шенген, Финляндия, Китай",
   "keyword": "And "
 });
 formatter.step({
-  "line": 15,
+  "line": 14,
   "name": "specify the dates of journey, any available dates",
   "keyword": "And "
 });
 formatter.step({
-  "line": 16,
+  "line": 15,
   "name": "specify birthday of tourists: 08.12.1945",
   "keyword": "And "
 });
 formatter.step({
-  "line": 17,
-  "name": "press button with text \"Рассчитать полис\"",
+  "line": 16,
+  "name": "press button with text \"Рассчитать полис\" on \"first page\"",
   "keyword": "When "
 });
 formatter.step({
   "comments": [
     {
-      "line": 18,
+      "line": 17,
       "value": "#actions at second page"
     }
   ],
+  "line": 18,
+  "name": "spinner should be displayed",
+  "keyword": "And "
+});
+formatter.step({
   "line": 19,
   "name": "wait until spinner disappears",
   "keyword": "And "
 });
 formatter.step({
   "line": 20,
-  "name": "element with tag \"search-result-item\" should exist",
+  "name": "collection of \"Результаты поиска\" should not be empty",
   "keyword": "Then "
 });
 formatter.match({
   "location": "MyStepdefs.openRiskmarketRu()"
 });
 formatter.result({
-  "duration": 4966584189,
+  "duration": 21389897408,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Вход в кабинет",
+      "offset": 30
+    }
+  ],
+  "location": "MyStepdefs.checkThatElementWithNameIsDisplayed(String)"
+});
+formatter.result({
+  "duration": 62958625,
   "status": "passed"
 });
 formatter.match({
@@ -98,12 +121,16 @@ formatter.match({
     {
       "val": "Вход в кабинет",
       "offset": 24
+    },
+    {
+      "val": "first page",
+      "offset": 44
     }
   ],
-  "location": "MyStepdefs.press(String)"
+  "location": "MyStepdefs.press(String,String)"
 });
 formatter.result({
-  "duration": 390651547,
+  "duration": 239459493,
   "status": "passed"
 });
 formatter.match({
@@ -115,12 +142,16 @@ formatter.match({
     {
       "val": "riskmarket.testoviy2016@yandex.ru",
       "offset": 39
+    },
+    {
+      "val": "first page",
+      "offset": 78
     }
   ],
-  "location": "MyStepdefs.typeToInputWithNameText(String,String)"
+  "location": "MyStepdefs.typeToInputWithNameText(String,String,String)"
 });
 formatter.result({
-  "duration": 323408200,
+  "duration": 1028190653,
   "status": "passed"
 });
 formatter.match({
@@ -132,12 +163,16 @@ formatter.match({
     {
       "val": "l0dcfJMB",
       "offset": 40
+    },
+    {
+      "val": "first page",
+      "offset": 54
     }
   ],
-  "location": "MyStepdefs.typeToInputWithNameText(String,String)"
+  "location": "MyStepdefs.typeToInputWithNameText(String,String,String)"
 });
 formatter.result({
-  "duration": 180813285,
+  "duration": 325834274,
   "status": "passed"
 });
 formatter.match({
@@ -145,19 +180,23 @@ formatter.match({
     {
       "val": "Войти",
       "offset": 24
+    },
+    {
+      "val": "first page",
+      "offset": 35
     }
   ],
-  "location": "MyStepdefs.press(String)"
+  "location": "MyStepdefs.press(String,String)"
 });
 formatter.result({
-  "duration": 96467675,
+  "duration": 127793496,
   "status": "passed"
 });
 formatter.match({
   "location": "MyStepdefs.waitUntilLoginFrameDisappears()"
 });
 formatter.result({
-  "duration": 3708914541,
+  "duration": 4141085506,
   "status": "passed"
 });
 formatter.match({
@@ -170,14 +209,14 @@ formatter.match({
   "location": "MyStepdefs.selectACountries(String\u003e)"
 });
 formatter.result({
-  "duration": 1885016059,
+  "duration": 2122302922,
   "status": "passed"
 });
 formatter.match({
   "location": "MyStepdefs.specifyTheDatesOfJourneyDepartureDateTomorrowReturnDateOneWeek()"
 });
 formatter.result({
-  "duration": 1056049742,
+  "duration": 1135658883,
   "status": "passed"
 });
 formatter.match({
@@ -198,7 +237,7 @@ formatter.match({
   "location": "MyStepdefs.specifyBirthdayOfTourists(String,String,String)"
 });
 formatter.result({
-  "duration": 472159281,
+  "duration": 813609469,
   "status": "passed"
 });
 formatter.match({
@@ -206,35 +245,53 @@ formatter.match({
     {
       "val": "Рассчитать полис",
       "offset": 24
+    },
+    {
+      "val": "first page",
+      "offset": 46
     }
   ],
-  "location": "MyStepdefs.press(String)"
+  "location": "MyStepdefs.press(String,String)"
 });
 formatter.result({
-  "duration": 358040,
-  "error_message": "java.lang.NullPointerException\r\n\tat ru.riskmarket.steps.MyStepdefs.press(MyStepdefs.java:63)\r\n\tat ✽.When press button with text \"Рассчитать полис\"(smoketest#1.feature:17)\r\n",
-  "status": "failed"
+  "duration": 368466448,
+  "status": "passed"
+});
+formatter.match({
+  "location": "MyStepdefs.spinnerShouldBeDisplayed()"
+});
+formatter.result({
+  "duration": 1396118269,
+  "status": "passed"
 });
 formatter.match({
   "location": "MyStepdefs.waitUntilSpinnerDisappears()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 20405606471,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "search-result-item",
-      "offset": 18
+      "val": "Результаты поиска",
+      "offset": 15
     }
   ],
-  "location": "MyStepdefs.elementWithTagShouldExist(String)"
+  "location": "MyStepdefs.collectionOfShouldNotBeEmpty(String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 53154623,
+  "status": "passed"
 });
 formatter.scenario({
-  "line": 22,
+  "comments": [
+    {
+      "line": 21,
+      "value": "#Then element with tag \"search-result-item\" should exist"
+    }
+  ],
+  "line": 23,
   "name": "go through service to yandex pay-page",
   "description": "",
   "id": "smoke-test-#1,-go-through-the-service-to-button-\"купить\";go-through-service-to-yandex-pay-page",
@@ -242,43 +299,43 @@ formatter.scenario({
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 24,
-  "name": "press button with text \"КУПИТЬ\"",
+  "line": 25,
+  "name": "press button with text \"КУПИТЬ\" on \"second page\"",
   "keyword": "Given "
 });
 formatter.step({
   "comments": [
     {
-      "line": 25,
-      "value": "#actions at thord page"
+      "line": 26,
+      "value": "#actions at third page"
     }
   ],
-  "line": 26,
-  "name": "type to input with name \"lastName\" text: \"TESTOVIY\"",
-  "keyword": "And "
-});
-formatter.step({
   "line": 27,
-  "name": "type to input with name \"firstName\" text: \"TEST\"",
+  "name": "type to input with name \"lastName\" text: \"TESTOVIY\" on \"third page\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 28,
-  "name": "press element with text \"Принимаю\"",
+  "name": "type to input with name \"firstName\" text: \"TEST\" on \"third page\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 29,
-  "name": "press element with value \"Оформить\" and it should be enabled",
+  "name": "press button with text \"Принимаю\" on \"third page\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 30,
-  "name": "press button with text \"Оплатить\"",
-  "keyword": "When "
+  "name": "press element with value \"Оформить\" and it should be enabled",
+  "keyword": "And "
 });
 formatter.step({
   "line": 31,
+  "name": "press button with text \"Оплатить\" and it should be enabled",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 32,
   "name": "verify that page with url \"https://money.yandex.ru/cashdesk\" is opened",
   "keyword": "Then "
 });
@@ -287,14 +344,17 @@ formatter.match({
     {
       "val": "КУПИТЬ",
       "offset": 24
+    },
+    {
+      "val": "second page",
+      "offset": 36
     }
   ],
-  "location": "MyStepdefs.press(String)"
+  "location": "MyStepdefs.press(String,String)"
 });
 formatter.result({
-  "duration": 769767,
-  "error_message": "java.lang.NullPointerException\r\n\tat ru.riskmarket.steps.MyStepdefs.press(MyStepdefs.java:63)\r\n\tat ✽.Given press button with text \"КУПИТЬ\"(smoketest#1.feature:24)\r\n",
-  "status": "failed"
+  "duration": 323450381,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
@@ -305,12 +365,17 @@ formatter.match({
     {
       "val": "TESTOVIY",
       "offset": 42
+    },
+    {
+      "val": "third page",
+      "offset": 56
     }
   ],
-  "location": "MyStepdefs.typeToInputWithNameText(String,String)"
+  "location": "MyStepdefs.typeToInputWithNameText(String,String,String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 438534120,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
@@ -321,24 +386,34 @@ formatter.match({
     {
       "val": "TEST",
       "offset": 43
+    },
+    {
+      "val": "third page",
+      "offset": 53
     }
   ],
-  "location": "MyStepdefs.typeToInputWithNameText(String,String)"
+  "location": "MyStepdefs.typeToInputWithNameText(String,String,String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 266069569,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
       "val": "Принимаю",
-      "offset": 25
+      "offset": 24
+    },
+    {
+      "val": "third page",
+      "offset": 38
     }
   ],
-  "location": "MyStepdefs.pressElementWithText(String)"
+  "location": "MyStepdefs.press(String,String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 83278759,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
@@ -350,7 +425,8 @@ formatter.match({
   "location": "MyStepdefs.pressElementWithTextAndItShouldBe(String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 505821176,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
@@ -359,10 +435,11 @@ formatter.match({
       "offset": 24
     }
   ],
-  "location": "MyStepdefs.press(String)"
+  "location": "MyStepdefs.pressButtonWithTextAndItShouldBeEnabled(String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 3379637470,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
@@ -374,6 +451,7 @@ formatter.match({
   "location": "MyStepdefs.verifyThatPageWithUrlIsOpened(String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 7566776446,
+  "status": "passed"
 });
 });

@@ -42,6 +42,18 @@ public class FirstPage extends AbstractPage {
     @FindBy(css = ".period-control-popup")
     public SelenideElement popupCalendar;
 
+    @NameOfElement("Кто едет")
+    @FindBy(xpath = ".//*[.='Кто едет']")
+    public SelenideElement whoIsTravel;
+
+    @NameOfElement("дд.мм.гггг")
+    @FindBy(xpath = ".//input[@placeholder='дд.мм.гггг']")
+    public SelenideElement travelerBirthDate;
+
+    @NameOfElement("Рассчитать полис")
+    @FindBy(xpath = "//button[.='Рассчитать полис']")
+    public SelenideElement polisCount;
+
     public void clickAnyAvailableDate() {
         popupCalendar.$("span[data-ng-click]").click();
         if(!popupCalendar.$("span[data-ng-click]").exists())

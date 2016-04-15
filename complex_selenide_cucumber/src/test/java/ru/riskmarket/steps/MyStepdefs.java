@@ -1,10 +1,14 @@
 package ru.riskmarket.steps;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import ru.riskmarket.pageobjects.FirstPage;
+import cucumber.api.java.en.When;
+import ru.riskmarket.pageobjects.*;
 
 import java.util.List;
 
@@ -20,6 +24,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class MyStepdefs {
 
     FirstPage firstPage = page(FirstPage.class);
+    SecondPage secondPage = page(SecondPage.class);
+    ThirdPage thirdPage = page(ThirdPage.class);
 
 
     @Given("^open riskmarket\\.ru$")
@@ -32,8 +38,6 @@ public class MyStepdefs {
     public void selectACountries(List<String> countries){
         for(String str : countries)
         {
-            //$("#countryInput").sendKeys(str);
-            //$("#countryInput").pressEnter();
             firstPage.get("Укажите страну").sendKeys(str);
             firstPage.get("Укажите страну").pressEnter();
         }
@@ -42,26 +46,27 @@ public class MyStepdefs {
     @And("^specify the dates of journey, any available dates$")
     public void specifyTheDatesOfJourneyDepartureDateTomorrowReturnDateOneWeek()
     {
-        //$("#preview").click();
         firstPage.get("Даты поездки").click();
         firstPage.clickAnyAvailableDate();
-        //$(".period-control-popup-day-body").$("span[data-ng-click]").click();
-        //$(".period-control-popup-day-body").$("span[data-ng-click]").click();
     }
 
     @And("^specify birthday of tourists: (\\d+).(\\d+).(\\d+)$")
     public void specifyBirthdayOfTourists(String day, String month, String year)
     {
-        $(byText("Кто едет")).click();
-        $("input[placeholder='дд.мм.гггг']").sendKeys(day + month + year);
+        firstPage.get("Кто едет").click();
+        firstPage.get("дд.мм.гггг").sendKeys(day + month + year);
     }
 
 
-    @And("^press button with text \"([^\"]*)\"$")
-    public void press(String button)
+    @And("^press button with text \"([^\"]*)\" on \"([^\"]*)\"$")
+    public void press(String button, String page)
     {
-
-        firstPage.get(button).click();
+        if("first page".equals(page))
+            firstPage.get(button).click();
+        else if("second page".equals(page))
+            secondPage.get(button).click();
+        else if("third page".equals(page))
+            thirdPage.get(button).click();
     }
 
     @And("^make a pause$")
@@ -70,38 +75,42 @@ public class MyStepdefs {
         sleep(3000);
     }
 
-    @And("^type to input with name \"([^\"]*)\" text: \"([^\"]*)\"$")
-    public void typeToInputWithNameText(String nameOfElement, String text)
+    @And("^type to input with name \"([^\"]*)\" text: \"([^\"]*)\" on \"([^\"]*)\"$")
+    public void typeToInputWithNameText(String nameOfElement, String text, String page)
     {
-        //sleep(1000);
-        //$("input[name=" + input + "]").sendKeys(text);
-        firstPage.get(nameOfElement).sendKeys(text);
+        sleep(100);
+        if("first page".equals(page)) {
+            firstPage.get(nameOfElement).sendKeys(text);
+        }
+        else if("second page".equals(page)) {
+            secondPage.get(nameOfElement).sendKeys(text);
+        }
+        else if("third page".equals(page)) {
+            thirdPage.get(nameOfElement).sendKeys(text);
+        }
+
     }
 
     @And("^wait until login frame disappears$")
     public void waitUntilLoginFrameDisappears()
     {
-        //$(".modal-content").waitUntil(Condition.disappears,7000);
         firstPage.get("Фрейм входа в кабинет").waitUntil(Condition.disappears,7000);
     }
 
     @And("^wait until spinner disappears$")
     public void waitUntilSpinnerDisappears()
     {
-        $(".spinner-container").waitUntil(Condition.disappears, 10000);
+        secondPage.get("Spinner").waitUntil(Condition.disappears, 30000);
     }
 
-    @Then("^element with tag \"([^\"]*)\" should exist$")
-    public void elementWithTagShouldExist(String tag)
+    @Then("^collection of \"([^\"]*)\" should not be empty$")
+    public void collectionOfShouldNotBeEmpty(String collection)
     {
-        $(tag).shouldBe(Condition.visible);
+        ElementsCollection selenideElements = secondPage.getCollection(collection);
+        //todo как здесь реализовать свой CollectionCondition, который проверяет, что количество элементов не НОЛЬ?
+        assertThat("ERROR: collection is empty", selenideElements.size()>0);
     }
 
-    @And("^press element with text \"([^\"]*)\"$")
-    public void pressElementWithText(String element)
-    {
-        press(element);
-    }
 
     @Then("^verify that page with url \"([^\"]*)\" is opened$")
     public void verifyThatPageWithUrlIsOpened(String verifyUrl)
@@ -114,7 +123,24 @@ public class MyStepdefs {
     @And("^press element with value \"([^\"]*)\" and it should be enabled")
     public void pressElementWithTextAndItShouldBe(String value)
     {
-        $("*[value=" + value + "]").waitUntil(Condition.enabled, 2000).click();
+        thirdPage.get(value).waitUntil(Condition.enabled, 2000).click();
     }
 
+    @When("^press button with text \"([^\"]*)\" and it should be enabled$")
+    public void pressButtonWithTextAndItShouldBeEnabled(String button)
+    {
+        thirdPage.get(button).waitUntil(Condition.visible, 6000).click();
+    }
+
+    @And("^spinner should be displayed$")
+    public void spinnerShouldBeDisplayed()
+    {
+        secondPage.get("Spinner").should(CustomConditions.spinnerShoudBeVisible());
+    }
+
+    @And("^check that element with name \"([^\"]*)\" is displayed$")
+    public void checkThatElementWithNameIsDisplayed(String elementName)
+    {
+        firstPage.get(elementName).shouldBe(Condition.appears);
+    }
 }
