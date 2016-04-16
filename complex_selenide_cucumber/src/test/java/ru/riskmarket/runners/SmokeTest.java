@@ -1,23 +1,25 @@
 package ru.riskmarket.runners;
 
+import com.codeborne.selenide.Configuration;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-
-/**
- * Created by VKov on 28-Mar-16.
- */
 
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-        plugin = {"pretty",
-                  "html:target/cucumber-report/smoketest",
-                  "json:target/cucumber.json"},
+        plugin = {"pretty", "html:target/cucumber-report/smoketest", "json:target/cucumber.json"},
         features = "src/test/java/ru/riskmarket/features",
         glue = "ru/riskmarket/steps",
-        tags = "@smoketest"
-)
+        tags = "@smoketest")
 
-public class SmokeTest {
+public class SmokeTest
+{
+
+    @BeforeClass
+    static public void setupTimeout()
+    {
+        Configuration.timeout = 10000;
+    }
 }

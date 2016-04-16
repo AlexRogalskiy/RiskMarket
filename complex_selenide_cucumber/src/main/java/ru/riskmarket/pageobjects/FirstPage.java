@@ -5,10 +5,8 @@ import org.openqa.selenium.support.FindBy;
 
 import static org.openqa.selenium.By.xpath;
 
-/**
- * Created by VKov on 28-Mar-16.
- */
-public class FirstPage extends AbstractPage {
+public class FirstPage extends AbstractPage
+{
 
     @NameOfElement("Вход в кабинет")
     @FindBy(xpath = "//button[.='Вход в кабинет']")
@@ -54,9 +52,10 @@ public class FirstPage extends AbstractPage {
     @FindBy(xpath = "//button[.='Рассчитать полис']")
     public SelenideElement polisCount;
 
-    public void clickAnyAvailableDate() {
+    public void clickAnyAvailableDate()
+    {
         popupCalendar.$("span[data-ng-click]").click();
-        if(!popupCalendar.$("span[data-ng-click]").exists())
+        if (!popupCalendar.$("span[data-ng-click]").exists())
         {
             popupCalendar.$(xpath("(./div[1]/button)[2]")).click();
         }

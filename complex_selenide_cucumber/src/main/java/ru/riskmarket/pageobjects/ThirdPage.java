@@ -1,14 +1,10 @@
 package ru.riskmarket.pageobjects;
 
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
-/**
- * Created by VKov on 08-Apr-16.
- */
-public class ThirdPage extends AbstractPage {
+public class ThirdPage extends AbstractPage
+{
 
     @NameOfElement("lastName")
     @FindBy(xpath = ".//input[@name='lastName']")

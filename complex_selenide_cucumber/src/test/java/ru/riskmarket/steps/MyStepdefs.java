@@ -3,30 +3,28 @@ package ru.riskmarket.steps;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import ru.riskmarket.pageobjects.*;
+import ru.riskmarket.pageobjects.CustomConditions;
+import ru.riskmarket.pageobjects.FirstPage;
+import ru.riskmarket.pageobjects.SecondPage;
+import ru.riskmarket.pageobjects.ThirdPage;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-/**
- * Created by VKov on 17-Mar-16.
- */
-public class MyStepdefs {
+public class MyStepdefs
+{
 
     FirstPage firstPage = page(FirstPage.class);
     SecondPage secondPage = page(SecondPage.class);
     ThirdPage thirdPage = page(ThirdPage.class);
-
 
     @Given("^open riskmarket\\.ru$")
     public void openRiskmarketRu()
@@ -34,17 +32,18 @@ public class MyStepdefs {
         open("http://riskmarket.ru");
     }
 
-    @And("^select a countries: (.*)$")
-    public void selectACountries(List<String> countries){
-        for(String str : countries)
+    @And("^select countries: (.*)$")
+    public void selectCountries(List<String> countries)
+    {
+        for (String str : countries)
         {
             firstPage.get("Укажите страну").sendKeys(str);
             firstPage.get("Укажите страну").pressEnter();
         }
     }
 
-    @And("^specify the dates of journey, any available dates$")
-    public void specifyTheDatesOfJourneyDepartureDateTomorrowReturnDateOneWeek()
+    @And("^specify dates of journey, any available dates$")
+    public void specifyDatesOfJourneyDepartureDateTomorrowReturnDateOneWeek()
     {
         firstPage.get("Даты поездки").click();
         firstPage.clickAnyAvailableDate();
@@ -61,12 +60,9 @@ public class MyStepdefs {
     @And("^press button with text \"([^\"]*)\" on \"([^\"]*)\"$")
     public void press(String button, String page)
     {
-        if("first page".equals(page))
-            firstPage.get(button).click();
-        else if("second page".equals(page))
-            secondPage.get(button).click();
-        else if("third page".equals(page))
-            thirdPage.get(button).click();
+        if ("первая страница".equals(page)) firstPage.get(button).click();
+        else if ("вторая страница".equals(page)) secondPage.get(button).click();
+        else if ("третья страница".equals(page)) thirdPage.get(button).click();
     }
 
     @And("^make a pause$")
@@ -79,13 +75,14 @@ public class MyStepdefs {
     public void typeToInputWithNameText(String nameOfElement, String text, String page)
     {
         sleep(100);
-        if("first page".equals(page)) {
+        if ("первая страница".equals(page))
+        {
             firstPage.get(nameOfElement).sendKeys(text);
-        }
-        else if("second page".equals(page)) {
+        } else if ("вторая страница".equals(page))
+        {
             secondPage.get(nameOfElement).sendKeys(text);
-        }
-        else if("third page".equals(page)) {
+        } else if ("третья страница".equals(page))
+        {
             thirdPage.get(nameOfElement).sendKeys(text);
         }
 
@@ -94,7 +91,7 @@ public class MyStepdefs {
     @And("^wait until login frame disappears$")
     public void waitUntilLoginFrameDisappears()
     {
-        firstPage.get("Фрейм входа в кабинет").waitUntil(Condition.disappears,7000);
+        firstPage.get("Фрейм входа в кабинет").waitUntil(Condition.disappears, 7000);
     }
 
     @And("^wait until spinner disappears$")
@@ -107,8 +104,7 @@ public class MyStepdefs {
     public void collectionOfShouldNotBeEmpty(String collection)
     {
         ElementsCollection selenideElements = secondPage.getCollection(collection);
-        //todo как здесь реализовать свой CollectionCondition, который проверяет, что количество элементов не НОЛЬ?
-        assertThat("ERROR: collection is empty", selenideElements.size()>0);
+        selenideElements.shouldHave(CollectionCondition.sizeGreaterThan(0));
     }
 
 
@@ -117,7 +113,7 @@ public class MyStepdefs {
     {
         sleep(3000);
         String currentUrl = url();
-        assertThat("ERROR: page's URL doesn't contain " + verifyUrl, currentUrl, containsString(verifyUrl));
+        assertThat(currentUrl, containsString(verifyUrl));
     }
 
     @And("^press element with value \"([^\"]*)\" and it should be enabled")
@@ -135,7 +131,7 @@ public class MyStepdefs {
     @And("^spinner should be displayed$")
     public void spinnerShouldBeDisplayed()
     {
-        secondPage.get("Spinner").should(CustomConditions.spinnerShoudBeVisible());
+        secondPage.get("Spinner").should(CustomConditions.spinnerShouldBeVisible());
     }
 
     @And("^check that element with name \"([^\"]*)\" is displayed$")

@@ -7,32 +7,31 @@ import cucumber.api.java.en.Then;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-/**
- * Created by VKov on 17-Mar-16.
- */
-public class MyStepdefs {
+public class MyStepdefs
+{
     @Given("^open riskmarket\\.ru$")
     public void openRiskmarketRu()
     {
         open("http://riskmarket.ru");
     }
 
-    @And("^select a countries: (.*)$")
-    public void selectACountries(List<String> countries){
-        for(String str : countries)
+    @And("^select countries: (.*)$")
+    public void selectCountries(List<String> countries)
+    {
+        for (String str : countries)
         {
             $("#countryInput").sendKeys(str);
             $("#countryInput").pressEnter();
         }
     }
 
-    @And("^specify the dates of journey, any available dates$")
+    @And("^specify dates of journey, any available dates$")
     public void specifyTheDatesOfJourneyDepartureDateTomorrowReturnDateOneWeek()
     {
         $("#preview").click();
@@ -51,7 +50,7 @@ public class MyStepdefs {
     @And("^press button with text \"([^\"]*)\"$")
     public void press(String button)
     {
-        $(byText(button)).click();
+        $(byText(button)).waitUntil(Condition.visible, 15000).click();
     }
 
     @And("^make a pause$")
@@ -64,25 +63,25 @@ public class MyStepdefs {
     public void typeToInputWithNameText(String input, String text)
     {
         sleep(1000);
-        $("input[name=" + input + "]").sendKeys(text);
+        $(byName(input)).sendKeys(text);
     }
 
     @And("^press element with value \"([^\"]*)\"$")
     public void pressElementWithValue(String value)
     {
-        $("*[value=" + value + "]").click();
+        $(byValue(value)).click();
     }
 
     @And("^wait until login frame disappears$")
     public void waitUntilLoginFrameDisappears()
     {
-        $(".modal-content").waitUntil(Condition.disappears,7000);
+        $(".modal-content").waitUntil(Condition.disappears, 7000);
     }
 
     @And("^wait until spinner disappears$")
     public void waitUntilSpinnerDisappears()
     {
-        $(".spinner-container").waitUntil(Condition.disappears, 10000);
+        $(".spinner-container").waitUntil(Condition.disappears, 30000);
     }
 
     @Then("^element with tag \"([^\"]*)\" should exist$")
@@ -108,6 +107,6 @@ public class MyStepdefs {
     @And("^press element with value \"([^\"]*)\" and it should be enabled")
     public void pressElementWithTextAndItShouldBe(String value)
     {
-        $("*[value=" + value + "]").waitUntil(Condition.enabled, 2000).click();
+        $(byValue(value)).waitUntil(Condition.enabled, 2000).click();
     }
 }
