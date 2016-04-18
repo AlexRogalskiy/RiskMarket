@@ -1,6 +1,7 @@
 package ru.riskmarket.steps;
 
 import com.codeborne.selenide.Condition;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -109,4 +110,5 @@ public class MyStepdefs
     {
         $(byValue(value)).waitUntil(Condition.enabled, 2000).click();
     }
+
 }

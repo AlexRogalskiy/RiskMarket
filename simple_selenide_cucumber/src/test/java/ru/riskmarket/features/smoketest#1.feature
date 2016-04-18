@@ -1,4 +1,4 @@
-Feature: smoke test #1, go through the service to button "Купить"
+Feature: smoke test #1, go through the service to Yandex-pay-page
 
   Scenario: go through the service to button "Купить"
 

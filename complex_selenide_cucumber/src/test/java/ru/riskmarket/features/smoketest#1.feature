@@ -19,7 +19,6 @@ Feature: smoke test #1, go through the service to button "Купить"
     And spinner should be displayed
     And wait until spinner disappears
     Then collection of "Результаты поиска" should not be empty
-    #Then element with tag "search-result-item" should exist
 
   Scenario: go through service to yandex pay-page
 

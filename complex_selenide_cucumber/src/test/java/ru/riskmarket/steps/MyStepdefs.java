@@ -74,7 +74,7 @@ public class MyStepdefs
     @And("^type to input with name \"([^\"]*)\" text: \"([^\"]*)\" on \"([^\"]*)\"$")
     public void typeToInputWithNameText(String nameOfElement, String text, String page)
     {
-        sleep(100);
+        sleep(1000);
         if ("первая страница".equals(page))
         {
             firstPage.get(nameOfElement).sendKeys(text);
