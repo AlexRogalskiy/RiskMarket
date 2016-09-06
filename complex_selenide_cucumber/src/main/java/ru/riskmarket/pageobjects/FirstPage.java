@@ -54,11 +54,8 @@ public class FirstPage extends AbstractPage
 
     public void clickAnyAvailableDate()
     {
+        popupCalendar.$(xpath("(./div[1]/button)[2]")).click();
         popupCalendar.$("span[data-ng-click]").click();
-        if (!popupCalendar.$("span[data-ng-click]").exists())
-        {
-            popupCalendar.$(xpath("(./div[1]/button)[2]")).click();
-        }
         popupCalendar.$("span[data-ng-click]").click();
     }
 }
